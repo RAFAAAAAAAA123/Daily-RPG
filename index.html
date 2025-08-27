@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World! </h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html><!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apakah Riris Lolos PTN?</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffe4ec;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background-color: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      color: #d63384;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .btn-yes { background-color: #a3e635; }
+    .btn-no { background-color: #f87171; }
+    .btn-yes:hover { background-color: #84cc16; }
+    .btn-no:hover { background-color: #ef4444; }
+    .btn-campus {
+      background-color: #fcd34d;
+    }
+    .btn-campus:hover {
+      background-color: #facc15;
+    }
+    .response {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Apakah Riris Lolos PTN?</h1>
+    <div>
+      <button class="btn-yes" onclick="jawab('yes')">Lolos</button>
+      <button class="btn-no" onclick="jawab('no')">Tidak</button>
+    </div>
+    <div id="response" class="response"></div>
+    <div id="kampus" style="margin-top: 20px;"></div>
+  </div>
+
+  <script>
+    function jawab(status) {
+      const response = document.getElementById('response');
+      const kampus = document.getElementById('kampus');
+      kampus.innerHTML = '';
+
+      if (status === 'no') {
+        response.innerHTML = 'Yahh belum rejeki :(';
+        response.style.color = '#e11d48';
+      } else {
+        response.innerHTML = 'Horeee Riris lolos PTN!! Pilih kampusnya:';
+        response.style.color = '#16a34a';
+        kampus.innerHTML = `
+          <button class="btn-campus" onclick="pilihKampus('UGM')">UGM</button>
+          <button class="btn-campus" onclick="pilihKampus('UPNY')">UPNY</button>
+          <div id="hasilKampus" style="margin-top: 15px; font-weight: bold;"></div>
+        `;
+      }
+    }
+
+    function pilihKampus(nama) {
+      const hasil = document.getElementById('hasilKampus');
+      if (nama === 'UGM') {
+        hasil.innerHTML = 'Ciyee manusia klitih 😎🎉';
+        hasil.style.color = '#8b5cf6';
+      } else if (nama === 'UPNY') {
+        hasil.innerHTML = 'Yahaha masuk barakk 🔥💪';
+        hasil.style.color = '#d97706';
+      }
+    }
+  </script>
+</body>
+</html>
